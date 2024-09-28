@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_28_062746) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_28_064311) do
   create_table "authors", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "penname"
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_28_062746) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "publisher_id", null: false
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "publishers", charset: "utf8mb4", force: :cascade do |t|
@@ -33,4 +35,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_28_062746) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "books", "publishers"
 end
