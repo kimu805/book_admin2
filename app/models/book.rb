@@ -18,4 +18,10 @@ class Book < ApplicationRecord
     end
   end 
 
+  before_validation do
+    self.name = self.name.gsub(/Cat/) do |matched|
+      "lovely #{matched}"
+    end
+  end
+
 end
