@@ -2,7 +2,6 @@ class BooksController < ApplicationController
   protect_from_forgery exvept: [:destroy]
   before_action :set_book, only: [:show, :destroy]
   around_action :action_logger, only: [:destroy]
-  skip_before_action :require_login, only: [:new, :create]
 
   def show
     respond_to do |format|
