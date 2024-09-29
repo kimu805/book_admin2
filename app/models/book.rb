@@ -9,4 +9,8 @@ class Book < ApplicationRecord
   has_many :authors, through: :book_authors
 
   # Validation
+  validates :name, presence: true
+  validates :name, length: { maximum: 25 }
+  validates :price, numericality: { greater_than_or_equal_to: 0}
+
 end
