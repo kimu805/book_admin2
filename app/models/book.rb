@@ -32,4 +32,9 @@ class Book < ApplicationRecord
     Rails.logger.warn "Book with high price is deleted : #{self.attributes}"
     Rails.logger.warn "Please check!!"
   end
+
+  def high_price?
+    price >= 5000
+  end
+
 end
